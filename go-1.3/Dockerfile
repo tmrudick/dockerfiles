@@ -2,9 +2,9 @@ FROM ubuntu:14.04
 
 MAINTAINER Tom Rudick <tmrudick@gmail.com>
 
-# Get wget so we can download the tarball
+# Install wget to get the taball and hg/git for go get
 RUN apt-get update && \
-    apt-get install -y wget git-core && \
+    apt-get install -y wget git-core mercurial && \
     apt-get clean
 
 # Download and install the Go tarball
@@ -13,10 +13,11 @@ RUN wget http://golang.org/dl/go1.3.linux-amd64.tar.gz && \
     rm go1.3.linux-amd64.tar.gz
 
 # Add the Go executables to our path
-ENV PATH $PATH:/usr/local/go/bin
+ENV PATH $PATH:/usr/local/go/bin:/workspace/bin
 
 # Create a Go workspace directory
-RUN mkdir /workspace
+RUN mkdir -p /workspace/bin /workspace/pkg /workspace/src
+
 WORKDIR /workspace
 ENV GOPATH /workspace
 
