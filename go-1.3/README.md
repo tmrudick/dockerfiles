@@ -11,6 +11,6 @@ Using for development
 
 Mount your local Go workspace into the /workspace directory within the container.
 
-    $ docker run -v ~/workspace:/workspace -i -t go:1.3 bash
+    $ docker run -v ~/workspace:/workspace -i -t tmrudick/go:1.3 bash
 
 Then, run all Go commands within the container.
