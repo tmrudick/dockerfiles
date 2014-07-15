@@ -4,7 +4,7 @@ MAINTAINER Tom Rudick <tmrudick@gmail.com>
 
 # Install wget to get the taball and hg/git for go get
 RUN apt-get update && \
-    apt-get install -y wget git-core mercurial && \
+    apt-get install -y wget git-core mercurial build-essential && \
     apt-get clean
 
 # Download and install the Go tarball
